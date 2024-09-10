@@ -2,6 +2,7 @@
   "name": "md-editor",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://gabriersdev.github.io/md-editor/",
   "type": "module",
   "scripts": {
     "dev": "vite",
