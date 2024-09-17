@@ -1,0 +1,428 @@
+/* Desenvolvido pelo stackedit */
+/* Arquivo original: https://stackedit.io/style.css */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  src: url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+}
+
+/*! normalize-scss | MIT/GPLv2 License | bit.ly/normalize-scss */
+html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+figcaption,
+figure {
+  display: block;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+main {
+  display: block;
+}
+
+pre {
+  font-family: 'Inter', monospace;
+  font-size: 1em;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+  font-family: 'Inter', monospace;
+  font-size: 1em;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+audio,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+img {
+  border-style: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: 'Inter' -serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+[type="reset"],
+[type="submit"],
+button,
+html [type="button"] {
+  -webkit-appearance: button;
+  appearance: button;
+}
+
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring,
+button:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+input {
+  overflow: visible;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  box-sizing: border-box;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  color: inherit;
+  white-space: normal;
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+menu {
+  display: block;
+}
+
+canvas {
+  display: inline-block;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+body,
+html {
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 16px;
+  font-family: 'Inter', Helvetica Neue, Helvetica, sans-serif;
+  font-variant-ligatures: common-ligatures;
+  line-height: 1.67;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+blockquote,
+dl,
+ol,
+p,
+pre,
+ul {
+  margin: 1.2em 0;
+}
+
+ul li {
+  list-style-type: square !important;
+  list-style: square !important;
+  margin: 0.5rem 0;
+}
+
+
+
+ul ul li {
+  &::before {
+    content: "▪";
+    margin-right: 0.5rem;
+  }
+}
+
+ul li strong {
+  display: inline-block;
+
+  &~li::before {
+    content: "";
+    margin-right: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1.8em 0;
+  line-height: 1.33;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem !important;
+  margin-top: 1rem !important;
+
+  strong {
+    font-family: inherit;
+  }
+}
+
+ul~h1,
+ul~h2,
+ul~h3,
+ul~h4,
+ul~h5,
+ul~h6 {
+  margin-top: 0 !important;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin: 0;
+  padding-bottom: 0.25rem;
+}
+
+dt {
+  font-weight: 700;
+}
+
+a {
+  color: #0c93e4;
+  text-decoration: underline;
+  text-decoration-skip: ink;
+}
+
+code,
+pre,
+samp {
+  /* monospace */
+  font-family: 'Inter', monospace;
+  font-size: 0.85em;
+}
+
+code *,
+pre *,
+samp * {
+  font-size: inherit;
+}
+
+blockquote {
+  color: rgba(0, 0, 0, 0.5);
+  padding-left: 1.5em;
+  border-left: 5px solid rgba(0, 0, 0, 0.1);
+}
+
+code {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid hsla(0, 0%, 50%, 0.33);
+  margin: 2em 0;
+}
+
+pre>code {
+  background-color: rgba(0, 0, 0, 0.05);
+  display: block;
+  padding: 0.5em;
+  -webkit-text-size-adjust: none;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  border-right: 1px solid #dcdcdc;
+  padding: 8px 12px;
+}
+
+td:last-child,
+th:last-child {
+  border-right: 0;
+}
+
+td {
+  border-top: 1px solid #dcdcdc;
+}
+
+mark {
+  background-color: #f8f840;
+}
+
+kbd {
+  font-family: 'Inter', Helvetica Neue, Helvetica, sans-serif;
+  background-color: #fff;
+  border: 1px solid rgba(63, 63, 63, 0.25);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(63, 63, 63, 0.25);
+  color: #333;
+  display: inline-block;
+  font-size: 0.8em;
+  margin: 0 0.1em;
+  padding: 0.1em 0.6em;
+  white-space: nowrap;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted #777;
+  cursor: help;
+}
+
+img {
+  max-width: 100%;
+}

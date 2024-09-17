@@ -1,19 +1,22 @@
-import { useEffect, useState } from 'react'
-import { Container, Button, FloatingLabel, Form } from 'react-bootstrap'
-
-import markdownIt from 'markdown-it'
-import print from 'print-js'
 import './App.css'
 
-// TODO - Criar estilização
-// Exemplo bom para alterar: https://stackedit.io/style.css
+import markdownIt from 'markdown-it'
+
+import { createContext, useEffect, useState } from 'react'
+import { Container, Button } from 'react-bootstrap'
+
+import Editor from './components/editor/Editor'
+import Preview from './components/preview/Preview'
+
+import html2pdf from 'html2pdf.js'
+
+export const ThemeContext = createContext()
 
 function App() {
   const [text, setText] = useState('# Hello World!')
   const [preview, setPreview] = useState('')
 
   const handleText = (e) => {
-    // console.log('HandleText:', e.target.value.length);
     setText(e.target.value)
     setPreview(markdownIt().render(text))
   }
@@ -45,14 +48,25 @@ function App() {
   const handleDownloadPDF = (e) => {
     let [htmlOriginal, timeout] = [e.target.innerHTML, null]
     e.preventDefault()
+
     clearTimeout(timeout)
 
+    const filename = document.querySelector('#template-preview h1') ? `${document.querySelector('#template-preview h1').textContent.split(' ').map((s) => s + '-').join('')}` : 'md-editor'
+
+    console.log(filename);
+
+    const element = document.getElementById('template-preview');
+    const opt = {
+      margin: 0.5,
+      filename: `${filename.endsWith('-') ? filename.slice(0, -1) : filename}.pdf`,
+      image: { type: 'png', quality: 0.98 },
+      html2canvas: { scale: 1 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
+
     try {
-      print({
-        printable: 'template-preview',
-        type: 'html',
-        css: 'https://stackedit.io/style.css',
-      })
       e.target.innerHTML = 'Baixado!'
     } catch (error) {
       console.error(error)
@@ -66,37 +80,27 @@ function App() {
 
   useEffect(() => {
     setPreview(markdownIt().render(text))
-  }, [])
+  }, [text])
 
   return (
-    <Container>
-      <header className='header'>
-        <hgroup className='my-3'>
-          <h1 className='display-6 fw-medium'>Editor de Markdown</h1>
-        </hgroup>
-        <div className='d-flex gap-1 my-3'>
-          <Button variant='primary' disabled={true}>Estilizar</Button>
-          <Button variant='secondary' onClick={handleDownloadMarkdown}>Baixar .md</Button>
-          <Button variant='secondary' onClick={handleDownloadPDF}>Baixar .pdf</Button>
-        </div>
-      </header>
-      <main className='row mt-3 mb-3'>
-        <section className='col editor' id='editor'>
-          <FloatingLabel
-            htmlFor="text-editor"
-            label="Editor .md"
-          >
-            <Form.Control as="textarea" className='text-editor fs-5' placeholder='...' id="text-editor" value={text} onChange={handleText} spellCheck="true" />
-          </FloatingLabel>
-        </section>
-        <section className='col preview card p-2 d-flex' id='preview'>
-          <span className='p-1 text-muted'>Preview:</span>
-          {/* FAIL - atualização da renderização (re-renderização) é atrasada, provavelmente pela forma que o react utiliza para fazer a atualização na página. verificar. */}
-          <div className='overflow-y-scroll px-1' id='template-preview' dangerouslySetInnerHTML={{ __html: preview }}>
+    <ThemeContext.Provider value={{ text: text, handleText: handleText, preview: preview }}>
+      <Container>
+        <header className='header'>
+          <hgroup className='my-3'>
+            <h1 className='display-6 fw-medium' style={{ border: 'none', marginBottom: 0 }}>Editor de Markdown</h1>
+          </hgroup>
+          <div className='d-flex gap-1 my-3'>
+            <Button variant='primary' disabled={true}>Estilizar</Button>
+            <Button variant='secondary' onClick={handleDownloadMarkdown}>Baixar .md</Button>
+            <Button variant='secondary' onClick={handleDownloadPDF}>Baixar .pdf</Button>
           </div>
-        </section>
-      </main>
-    </Container >
+        </header>
+        <main className='row mt-3 mb-3'>
+          <Editor />
+          <Preview />
+        </main>
+      </Container >
+    </ThemeContext.Provider>
   )
 }
 
