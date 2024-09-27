@@ -276,8 +276,6 @@ ul li {
   margin: 0.5rem 0;
 }
 
-
-
 ul ul li {
   &::before {
     content: "▪";
@@ -300,7 +298,6 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 1.8em 0;
   line-height: 1.33;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem !important;
@@ -311,12 +308,12 @@ h6 {
   }
 }
 
-ul~h1,
-ul~h2,
-ul~h3,
-ul~h4,
-ul~h5,
-ul~h6 {
+h1~ul,
+h2~ul,
+h3~ul, 
+h4~ul, 
+h5~ul, 
+h6~ul {
   margin-top: 0 !important;
 }
 

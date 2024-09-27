@@ -18,7 +18,7 @@ function App() {
 
   const handleText = (e) => {
     setText(e.target.value)
-    setPreview(markdownIt().render(text))
+    setPreview(markdownIt().render(text.trim()))
   }
 
   const handleDownloadMarkdown = (e) => {
