@@ -310,9 +310,9 @@ h6 {
 
 h1~ul,
 h2~ul,
-h3~ul, 
-h4~ul, 
-h5~ul, 
+h3~ul,
+h4~ul,
+h5~ul,
 h6~ul {
   margin-top: 0 !important;
 }
@@ -338,8 +338,7 @@ a {
 code,
 pre,
 samp {
-  /* monospace */
-  font-family: 'Inter', monospace;
+  font-family: monospace;
   font-size: 0.85em;
 }
 
@@ -372,8 +371,9 @@ pre>code {
   display: block;
   padding: 0.5em;
   -webkit-text-size-adjust: none;
-  overflow-x: auto;
-  white-space: pre;
+  white-space: pre-wrap;
+  overflow-x: hidden;
+  word-wrap: break-word;
 }
 
 table {
