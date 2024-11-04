@@ -1,5 +1,11 @@
+/* Import Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Import Inter Tight */
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-  font-family: 'Inter', Inter, 'Inter Tight', Arial, system-ui, Helvetica, sans-serif;
+  font-family: 'Inter', 'Inter Tight', Arial, system-ui, Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

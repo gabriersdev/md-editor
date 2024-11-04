@@ -1,15 +1,9 @@
-/* Import Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
-
-/* Import Inter Tight */
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
-
 :root {
   --min-height: calc(100vh - 9rem);
 }
 
 body * {
-  font-family: 'Inter', Inter, 'Inter Tight', Arial, system-ui, Helvetica, sans-serif;
+  font-family: 'Inter', 'Inter Tight', Arial, system-ui, Helvetica, sans-serif;
 }
 
 h1,
