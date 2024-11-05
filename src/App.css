@@ -3,7 +3,7 @@
 }
 
 body * {
-  font-family: 'Inter', 'Inter Tight', Arial, system-ui, Helvetica, sans-serif;
+  font-family: 'Inter', 'Inter Tight', Arial, system-ui, Helvetica, sans-serif !important;
 }
 
 h1,
@@ -12,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Inter Tight', 'Inter', sans-serif;
+  font-family: 'Inter Tight', 'Inter', sans-serif !important;
 }
 
 .text-editor {
@@ -22,4 +22,9 @@ h6 {
 
 .preview {
   max-height: var(--min-height);
+}
+
+.text-editor,
+.preview {
+  font-family: inherit !important;
 }
